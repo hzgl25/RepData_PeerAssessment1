@@ -37,7 +37,7 @@ castedInterval <- dcast(meltedInterval, interval ~ variable, mean)
 plot( castedInterval$interval, castedInterval$steps, type="l")
 
 <p>
-  <img src="https://github.com/hzgl25/RepData_PeerAssessment1/blob/master/Rplot_1.png" width="350"/>
+  <img src="https://github.com/hzgl25/RepData_PeerAssessment1/blob/master/Rplot_2.png" width="350"/>
 </p>
 
 maxRow <- castedInterval[castedInterval$steps==max(castedInterval$steps),]
