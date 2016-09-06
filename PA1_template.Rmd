@@ -87,3 +87,8 @@ melted <- melt(NaResolvedActivity, id=c("interval", "dayType"), na.rm=TRUE, meas
 casted <- dcast(melted, interval + dayType ~ variable, mean)
 p <- ggplot(casted, aes(x=interval, y=steps)) + geom_line() + ylab("Number of Steps")
 p + facet_wrap(~ dayType, ncol=1)
+
+<p>
+  <img src="https://github.com/hzgl25/RepData_PeerAssessment1/blob/master/Rplot-4.png" width="350"/>
+</p>
+
