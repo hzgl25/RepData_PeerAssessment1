@@ -51,6 +51,23 @@ x1 <- length(which(is.na(x)))
 There are 2304 missing values.
 We will now impute the missing values. The method to impute the value is by assigning the average number of steps for each interval into those intervals with NA's. With the imputed missing values we will create a histogram and calculate a mean and median as before.
 
+activityNa <- is.na(activity$steps)
+castedIntervalAdj <- cbind(castedInterval, as.integer(round(castedInterval$steps)))
+nonNaActivity <- activity[!activityNa,]
+NaActivity <- activity[activityNa,]
+NaResolved <- merge(NaActivity, castedIntervalAdj, by.x = "interval", by.y = "interval", all=FALSE )
+NaResolved$steps.x <- NULL
+NaResolved$steps.y <- NULL
+names(NaResolved)[3] <- paste("steps")
+NaResolvedActivity <- rbind(NaResolved, nonNaActivity)
+meltedActivity <- melt(NaResolvedActivity, id=c("date"), na.rm=TRUE, measure.vars="steps")
+castedActivity <- dcast(meltedActivity, date ~ variable, sum)
+hist(castedActivity$steps)
+
+<p>
+  <img src="https://github.com/hzgl25/RepData_PeerAssessment1/blob/master/Rplot_2.png" width="350"/>
+</p>
+
 The mean is 10765.64 and the median is 10762. In this case the mean and median both were lower which seemed counter intuitive. But when you looked at the missing values, they were missing for entire days not for selected intervals within a day. What happened is that the methodology used to calcualte the missing values was based on interval time. Due to rounding the sum for a day for these intervals were a little lower than the mean for the days. This could have gone the other way. Also if it was some intervals that were missing for days that had other values, the mean and median could have increased.
 
 ## Are there differences in activity patterns between weekdays and weekends?
