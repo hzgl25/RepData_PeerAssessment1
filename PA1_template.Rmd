@@ -34,7 +34,11 @@ The mean is 10766.19 and the median is 10765.
 #### The data is reshaped to produce a plot based on interval time.
 meltedInterval <- melt(activity, id=c("interval"), na.rm=TRUE, measure.vars="steps")
 castedInterval <- dcast(meltedInterval, interval ~ variable, mean)
-plot( castedInterval$interval, castedInterval$steps, type="l"
+plot( castedInterval$interval, castedInterval$steps, type="l")
+
+<p>
+  <img src="https://github.com/hzgl25/RepData_PeerAssessment1/blob/master/Rplot_1.png" width="350"/>
+</p>
 
 maxRow <- castedInterval[castedInterval$steps==max(castedInterval$steps),]
 The maximum number of steps is 206.1698 at time interval 835.
