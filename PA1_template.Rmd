@@ -22,11 +22,15 @@ library("ggplot2", lib.loc="C:/Users/hzgl25/Documents/R/win-library/3.3")
 #### The data from this csv will be transformed, a mean and median calculated and a histogram displayed.
 
 meltedActivity <- melt(activity, id=c("date"), na.rm=TRUE, measure.vars="steps")
+
 castedActivity <- dcast(meltedActivity, date ~ variable, sum)
+
 hist(castedActivity$steps)
 
 actMean <- format(round(mean(castedActivity$steps), 2), nsmall = 2)
+
 actMedian <- median(castedActivity$steps)
+
 <p>
   <img src="https://github.com/hzgl25/RepData_PeerAssessment1/blob/master/Rplot_1.png" width="350"/>
 </p>
