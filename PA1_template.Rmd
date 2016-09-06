@@ -68,6 +68,9 @@ hist(castedActivity$steps)
   <img src="https://github.com/hzgl25/RepData_PeerAssessment1/blob/master/Rplot_3.png" width="350"/>
 </p>
 
+impMean <- format(round(mean(castedActivity$steps), 2), nsmall = 2)
+impMedian <- median(castedActivity$steps)
+
 The mean is 10765.64 and the median is 10762. In this case the mean and median both were lower which seemed counter intuitive. But when you looked at the missing values, they were missing for entire days not for selected intervals within a day. What happened is that the methodology used to calcualte the missing values was based on interval time. Due to rounding the sum for a day for these intervals were a little lower than the mean for the days. This could have gone the other way. Also if it was some intervals that were missing for days that had other values, the mean and median could have increased.
 
 ## Are there differences in activity patterns between weekdays and weekends?
