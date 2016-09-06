@@ -22,9 +22,11 @@ meltedActivity <- melt(activity, id=c("date"), na.rm=TRUE, measure.vars="steps")
 castedActivity <- dcast(meltedActivity, date ~ variable, sum)
 hist(castedActivity$steps)
 
-
 actMean <- format(round(mean(castedActivity$steps), 2), nsmall = 2)
 actMedian <- median(castedActivity$steps)
+<p align="center">
+  <img src="your_relative_path_here" width="350"/>
+</p>
 
 The mean is 10766.19 and the median is 10765.
 
