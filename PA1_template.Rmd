@@ -41,6 +41,7 @@ plot( castedInterval$interval, castedInterval$steps, type="l")
 </p>
 
 maxRow <- castedInterval[castedInterval$steps==max(castedInterval$steps),]
+
 The maximum number of steps is 206.1698 at time interval 835.
 
 ## Imputing missing values
