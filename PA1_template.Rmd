@@ -10,8 +10,11 @@ output:
 ####The following code will install and load libraries used in the code for this document.
 
 install.packages("reshape2", repos='http://cran.us.r-project.org')
+
 install.packages("ggplot2", repos='http://cran.us.r-project.org')
+
 library("reshape2", lib.loc="C:/Users/hzgl25/Documents/R/win-library/3.3")
+
 library("ggplot2", lib.loc="C:/Users/hzgl25/Documents/R/win-library/3.3")
 
 
